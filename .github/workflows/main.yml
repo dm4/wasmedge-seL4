@@ -33,4 +33,5 @@ jobs:
       env:
         MANIFEST: ${{ matrix.manifest }}
       run: |
+        git branch -vv
         bash ./build.sh

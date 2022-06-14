@@ -30,7 +30,8 @@ cd sel4_wasmedge
 # Setup project files
 git clone --branch v1.13.11 https://gerrit.googlesource.com/git-repo .repo/repo
 if [ -n "${GITHUB_ACTIONS:-}" ]; then
-  .repo/repo/repo init -b "$GITHUB_HEAD_REF" -m "$MANIFEST" -u ..
+  git branch "$GITHUB_REF_NAME"
+  .repo/repo/repo init -b "$GITHUB_REF_NAME" -m "$MANIFEST" -u ..
 else
   .repo/repo/repo init -b main -u https://github.com/second-state/wasmedge-seL4.git
 fi
